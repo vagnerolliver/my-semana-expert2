@@ -8,7 +8,7 @@ class Business {
             .setOnUserConnected(this.onUserConnected())
             .setOnUserDisconnected(this.onUserDisconnected())
             .build()   
-        this.socketBuilder.emit('join-room', this.room, 'teste01');
+        this.socketBuilder.emit('join-room', this.room, 'test01');
  
         this.currentStream = {}  
     } 
@@ -19,7 +19,7 @@ class Business {
     }
 
     async _init() {
-         this.currentStream = await this.media.getCamera()    
+        this.currentStream = await this.media.getCamera()    
         this.addVideoStream('test01')
     }   
 
