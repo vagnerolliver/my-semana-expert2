@@ -24,6 +24,7 @@
         // adiciona os usuarios na mesma sala
         socket.join(roomId)
         socket.to(roomId).broadcast.emit('user-connected', userId)
+        console.log('connected!', roomId, userId)
         socket.on('disconnect', () => {
             console.log('disconnected!', roomId, userId)
             socket.to(roomId).broadcast.emit('user-disconnected', userId)
