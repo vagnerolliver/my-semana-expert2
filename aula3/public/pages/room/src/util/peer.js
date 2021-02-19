@@ -51,8 +51,22 @@ class PeerBuilder {
     }
 
     // add o comporamento de evnentos de call também pra quem ligar
-    _preparePeerInstanceFunction() {
-        
+    _preparePeerInstanceFunction(peerModule) {
+        class PeerCustomModule extends peerModule {}
+
+        const peerCall = PeerCustomModule.prototype.call
+        const context = this
+        PeerCustomModule.prototype.call = function (id, stream) {
+            const call = peerCall.apply(this, [id, stream])
+
+            // the magic! intercepa o call e add todos os eventos da chamada
+            // para quem liga também
+            context._prepareCallEvent(call)
+
+            return call
+        }
+
+        return PeerCustomModule
     }
 
     build() {
