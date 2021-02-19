@@ -25,6 +25,11 @@ class View {
         this.appendToHTMLTree(userId, video, isCurrentId)
     }
 
+    removeVideoElement(id) {
+        const element = document.getElementById(id)
+        element.remove()
+    }
+
     appendToHTMLTree(userId, video, isCurrentId) {
         const div = document.createElement('div')
         div.id = userId

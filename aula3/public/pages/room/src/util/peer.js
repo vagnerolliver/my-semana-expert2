@@ -11,12 +11,12 @@ class PeerBuilder {
         this.onPeerStreamReceived = defaultFunctionValue
     }
 
-    setOnCallError() {
+    setOnCallError(fn) {
         this.onCallError = fn 
         return this
     }
 
-    setOnCallClose() {
+    setOnCallClose(fn) {
         this.onCallClose = fn 
         return this
     }
