@@ -76,7 +76,7 @@ class Business {
 
     onPeerCallReceived = function() {
         return call => {
-          console.log('answwering call', call)
+          console.log('answering call', call)
           call.answer(this.currentStream)
         }
     }
